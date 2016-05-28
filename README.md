@@ -16,5 +16,5 @@ npm install
 npm start
 ```
 
-Visit **http://loclhost:8080** to view
+Visit **http://localhost:8080** to view
 
