@@ -5,10 +5,8 @@ Can search movies according to title from [OMDB api](http://www.omdbapi.com)
 
 ## Setup
 
-
 ```
 npm install
-
 ```
 
 
@@ -18,5 +16,5 @@ npm install
 npm start
 ```
 
-Visit ** http://loclhost:8080 ** to view
+Visit **http://loclhost:8080** to view
 
