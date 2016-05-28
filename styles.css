@@ -1,0 +1,116 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+.banner, .display, .copyright {
+	text-align: center;
+}
+
+.display {
+	min-height: 200px;
+} 
+
+.searchArea {
+	margin: 40px auto;
+    width:60%;
+}
+
+.searchButton {
+	margin: 20px 0;
+}
+
+.searchButton .btn {
+	width: 100%;
+}
+
+.form-group .input-group-addon {
+	padding: 0;
+    border: none;
+}
+
+.wrapper {
+	padding: 0;
+	border: none;
+	position: relative;
+}
+
+.title {
+	color:#fafafa;
+	word-wrap: break-word;
+}
+
+.poster {
+    height: 300px;
+    width: 200px;
+    /*width: 100%;*/
+    border-radius: 2px;
+    box-shadow: 1px 0px 5px 1px rgba(189, 188, 188, 0.7);
+    cursor: pointer;
+}
+
+.mask {
+	display: none;
+	position: absolute;
+	height: 300px;
+    width: 200px;
+    padding: 12px;
+    /*background-color: rgba(51, 51, 51, 0.69);*/
+    background-color: rgba(76, 76, 76, 0.8);
+    top: 0;
+}
+
+
+.wrapper:hover .mask{
+	display: block;
+}
+
+.movie-description .glyphicon {
+	color: #ccc;
+}
+
+.movie-detail {
+	margin: 20px 0;
+	border: none;
+}
+
+.movie-description {
+    padding: 8px 0;
+    width: 100%;
+    color: #fafafa;
+    margin-top: 25px;
+}
+
+.movie-description p {
+	margin-bottom: 0;
+	text-transform: capitalize;
+}
+
+.movie-description div {
+	width:45%;
+}
+
+.Type {
+	text-align: right;
+}
+
+.Year {
+	text-align: left;
+}
+
+.copyright {
+	color: rgba(97, 93, 93, 0.85);
+    font-size: 14px;
+    margin: 20px 0;
+}
+
+.copyright .glyphicon {
+	font-size: 12px;
+}
+
+.react-icon {
+	height: 15px;
+    width: 15px;
+    margin: 0 2px 2px 2px;
+}

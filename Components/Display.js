@@ -11,34 +11,34 @@ class Display extends React.Component {
 			  };
 
 			  componentDidMount() {
-			  	// console.log("prop",this.props.source);
 			  	this.state.data = this.props.source.Search;
 		        this.setState(this.state);
-		        console.log("props source",this.state.data);
-		         //  var myInit = {
-		         //  	method:"GET"
-		         //  };
-		         //  console.log("url",this.props.source);
-		         // // console.log("props",this.props.getclick);
-		         //  fetch(this.props.source, myInit).then((response) => {
-		         //  	return response.json();
-		         //  }).then((data) => {
-		         //  	this.state.list = data;
-		         //  	this.setState(this.state);
-		         //  	console.log("state",this.state);
-		         //  	//this.props.getclick = false;
-		         //  });
-		          // console.log("componentdid",this.props);
 		        }
 
 		        render() {
 		          let details = this.state.data;
+		          let src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRMP3aUjS-fIma3HSv0FDKF965ESXIftmDBm5j286f8wGfNtkbP";
 		          return (	<div>
 		          			{details.map(function(detail){
 					          	return (
-					          			<div>
-					          			<h2>{detail.Title}</h2>
-				            			<img ref = "myInput" src={detail.Poster}/>
+					          			<div className="col col-lg-3 col-md-3 col-sm-6 col-xs-12 movie-detail">
+					          				<p className="title-top">
+					          				{ ((detail.Title).length > 25) ? 
+										    (((detail.Title).substring(0,25)) + '...') : 
+										    detail.Title }
+										    </p>
+
+
+						          			<div className="wrapper img-thumbnail">
+						            			<img className="poster" alt={detail.Title+" Poster"} ref="myInput" src={detail.Poster==="N/A" ? src : detail.Poster }/>
+							          			<div className="mask">
+							          			<h3 className="title ">{detail.Title}</h3>
+							          				<div className="movie-description clearfix">
+							          						<p className=" "><span className="glyphicon glyphicon-film"></span>&nbsp;{detail.Type}&nbsp;|&nbsp;<span className="glyphicon glyphicon-calendar"></span>&nbsp;{detail.Year}</p>
+							          				</div>
+							          			</div>
+							          			
+							          		</div>
 					          			</div>
 					          		);
 			            	})}

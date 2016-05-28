@@ -5,11 +5,11 @@ import Display from './Display';
 class Button extends React.Component {
   render() {
     return (
-    	<span>
-      <button {...this.props}>
-        click
-       </button>
-       </span>
+    	<div className="">
+      		<button type="submit" className="btn btn-success" {...this.props}>
+        	<span className="glyphicon glyphicon-search"></span>
+       		</button>
+       </div>
     );
   }  
 }
@@ -32,21 +32,20 @@ class Content extends React.Component {
 
 	handleSearchChange (event) {
 	   this.setState({title:event.target.value});
-	   
 	}
 
 	handleClick() {
+		event.preventDefault();
+		event.stopPropagation();
 		var search = this.state.url+this.state.title;
 
 		 var myInit = {
 		          	method:"GET"
 		          };
-		          // console.log("url",search);
 		          fetch(search, myInit).then((response) => {
 		          	return response.json();
 		          }).then((data) => {
 		          	this.setState({clicked:true,title:data});
-		          	// console.log(this.state);
 		          });
 		          this.setState({clicked:false});
     }
@@ -54,12 +53,16 @@ class Content extends React.Component {
 	render() {
 		return(
 			<div>
-			<label for="usr"></label>
- 			 <input type="text" class="form-control" id="usr" ref="search" name="movie" placeholder="Search Movies" onKeyUp={this.handleSearchChange}/>
- 			 <Button onClick={this.handleClick} />
-        		{this.state.clicked ? <Display source={this.state.title} />: null}
+			<form className="form-group" onSubmit={this.handleClick}>
+				<div className="searchArea input-group">
+			         <input type="text" className="searchField form-control" id="usr" placeholder="Search Movies By Movie Title/Name" onKeyUp={this.handleSearchChange} />
+			         <span className="input-group-addon">
+				         <Button />
+		        	 </span>
+		      	</div>
+ 			</form>
+ 			{this.state.clicked ? <Display source={this.state.title} />: null}
  			</div>
- 			
 		);
 	}
 }
