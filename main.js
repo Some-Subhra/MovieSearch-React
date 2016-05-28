@@ -4,9 +4,9 @@ import Header from './Components/Header';
 import Content from './Components/Content';
 import Footer from './Components/Footer';
 
-React.render(<Header />, document.getElementById('header'));
-React.render(<Content />, document.getElementById('content'));
-React.render(<Footer />, document.getElementById('footer'));
+ReactDOM.render(<Header />, document.getElementById('header'));
+ReactDOM.render(<Content />, document.getElementById('content'));
+ReactDOM.render(<Footer />, document.getElementById('footer'));
 
 
 

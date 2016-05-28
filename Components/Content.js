@@ -34,7 +34,7 @@ class Content extends React.Component {
 	   this.setState({title:event.target.value});
 	}
 
-	handleClick() {
+	handleClick(event) {
 		event.preventDefault();
 		event.stopPropagation();
 		var search = this.state.url+this.state.title;
@@ -45,9 +45,10 @@ class Content extends React.Component {
 		          fetch(search, myInit).then((response) => {
 		          	return response.json();
 		          }).then((data) => {
-		          	this.setState({clicked:true,title:data});
+		          	{data.Response ? this.setState({clicked:true,title:data}): this.setState({clicked:true,title:data.Error})}
 		          });
 		          this.setState({clicked:false});
+
     }
 
 	render() {

@@ -6,19 +6,24 @@ class Display extends React.Component {
 				
 			    super(props, context);
 			    this.state = {
-			    	data :[]
+			    	data :[],
+			    	error:""
 			    };
 			  };
 
 			  componentDidMount() {
-			  	this.state.data = this.props.source.Search;
+			  	{this.props.source.Search ? this.state.data = this.props.source.Search: this.state.error=this.props.source.Error}
+	
 		        this.setState(this.state);
+		        
 		        }
 
 		        render() {
 		          let details = this.state.data;
+		          let errorMessage = this.state.error;
 		          let src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRMP3aUjS-fIma3HSv0FDKF965ESXIftmDBm5j286f8wGfNtkbP";
 		          return (	<div>
+		          			<h2 className="text-danger">{errorMessage}</h2>
 		          			{details.map(function(detail){
 					          	return (
 					          			<div className="col col-lg-3 col-md-3 col-sm-6 col-xs-12 movie-detail">
@@ -27,8 +32,6 @@ class Display extends React.Component {
 										    (((detail.Title).substring(0,25)) + '...') : 
 										    detail.Title }
 										    </p>
-
-
 						          			<div className="wrapper img-thumbnail">
 						            			<img className="poster" alt={detail.Title+" Poster"} ref="myInput" src={detail.Poster==="N/A" ? src : detail.Poster }/>
 							          			<div className="mask">
